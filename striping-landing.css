@@ -1351,6 +1351,20 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
 /* Sticky bar now carries two actions (ADA's was call-only). */
 .sticky-bar .btn { flex: 1; }
 
+/* ---- "Refresh vs new layout" band — recolour the planning card off blue
+   (blue is reserved for accessible references). Card 1 keeps the yellow/black
+   striping pattern; card 2 goes charcoal/neutral so the two still read as a
+   pair without introducing a second accent colour. ---- */
+.risk-card--planned { background: rgba(20, 18, 14, 0.05); }
+.risk-card--planned::before {
+  background: repeating-linear-gradient(45deg,
+    var(--text-dark) 0 10px, #FFFFFF 10px 20px);
+}
+.risk-card--planned .risk-icon { background: var(--gray-concrete); color: var(--text-dark); }
+.risk-card--planned li::before { background: var(--text-dark); }
+.risk-cta--planned { color: var(--text-dark); }
+.risk-cta--planned:hover { color: #000; }
+
 /* ---- S4 · Before-and-after transformation ---- */
 .ba-layout { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center; }
 .ba-section .ba { border-radius: 12px; border: 1px solid var(--border-light); }
