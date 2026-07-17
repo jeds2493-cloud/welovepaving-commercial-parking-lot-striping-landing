@@ -278,7 +278,7 @@ a:hover { color: var(--ada-blue-dark); }
   background-color: #2A2723;
   background-image:
     linear-gradient(rgba(20, 18, 14, 0.90), rgba(20, 18, 14, 0.90)),
-    url("images/ada-hero-bg.webp");
+    url("images/striping-hero-bg.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1061,7 +1061,7 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
         rgba(20, 18, 14, 0.92) 38%,
         rgba(20, 18, 14, 0.78) 68%,
         rgba(20, 18, 14, 0.58) 100%),
-      url("images/ada-hero-bg.webp");
+      url("images/striping-hero-bg.webp");
     padding-top: 56px;
     padding-bottom: 44px;
     min-height: calc(100vh - var(--header-h, 0px) - var(--utility-h, 0px));
@@ -1319,7 +1319,7 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
         rgba(20, 18, 14, 0.74) 34%,
         rgba(20, 18, 14, 0.52) 62%,
         rgba(20, 18, 14, 0.44) 100%),
-      url("images/hero-bg-mobile.webp");
+      url("images/striping-hero-mobile.webp");
     /* Biased toward the right of the frame so the "Parking Only" ADA sign, which
        sits on the right of the photo, clears the crop instead of hugging the edge. */
     background-position: 72% top;
@@ -1361,25 +1361,28 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
    striping brief restricts.
    ============================================================ */
 
-/* Header service label beside the logo (desktop/tablet). */
-.header-service {
-  font-family: var(--font-display); font-weight: 700; font-size: 14px;
-  color: var(--text-muted-dark); letter-spacing: -0.01em;
-  padding-left: 14px; border-left: 1px solid var(--border-dark);
-}
-@media (max-width: 899px) { .header-service { display: none; } }
-
 /* Blue is reserved for accessible references only (brief). The shared system
    uses ADA blue as a general technical accent; here the non-accessible accents
    move to the striping palette (yellow signage / charcoal), and blue stays only
    on the accessible service card. */
 .eyebrow { color: var(--yellow); }
 .testimonial-eyebrow { color: var(--yellow); }
-.benefit-icon { color: var(--text-dark); }
+/* Hero bullet markers: yellow signage chip with a dark glyph. Yellow-on-white
+   would fail contrast, so the chip itself carries the yellow and the glyph goes
+   dark (dark-on-yellow clears AA and pops on the dark hero). */
+.benefit-icon {
+  background: var(--yellow); border-color: var(--yellow); color: var(--text-dark);
+}
 .cond-tag .icon { color: var(--yellow); }
 .cond-card--accessible .cond-tag .icon { color: var(--ada-blue); }
 .faq-q .icon { color: var(--text-muted-light); }
 .ba-tag--after { background: var(--yellow); color: var(--text-dark); }
+
+/* Enlarge the "100%" on the free-estimate seal — it was sized as the small top
+   line ("UP TO"); here it's a headline number and should read as one. */
+.warranty-seal .s1 {
+  font-size: 0.135em; font-weight: 900; letter-spacing: 0.01em; line-height: 1;
+}
 
 /* Mobile/tablet header + sticky bar. The brief puts BOTH actions in the bottom
    sticky bar below the desktop breakpoint, so the header CTA is redundant there
