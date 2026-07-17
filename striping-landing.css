@@ -1414,7 +1414,6 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
   font-size: clamp(20px, 3vw, 26px); line-height: 1.05; color: #fff;
 }
 .pledge-highlight-label { font-size: 12.5px; line-height: 1.4; color: var(--text-muted-dark); margin-top: 3px; }
-.pledge-cta-row { margin-top: 22px; }
 
 /* Emblem baked into the background on the right (desktop) — deferred to .bg-in so
    this below-fold art doesn't compete with the hero LCP. */
