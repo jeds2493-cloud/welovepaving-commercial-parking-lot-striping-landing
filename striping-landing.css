@@ -1221,19 +1221,9 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
   margin-bottom: 0.008em;
 }
 
-/* Mobile/tablet header + sticky bar. The brief puts BOTH actions in the bottom
-   sticky bar below the desktop breakpoint, so the header CTA is redundant there
-   — hide it and surface the phone in the header instead. */
-@media (max-width: 1079px) {
-  .header-cta { display: none; }
-  .header-phone { display: flex; }
-}
-@media (max-width: 560px) {
-  .header-phone-label { display: none; }
-  .header-phone-num { font-size: 17px; }
-}
-
-/* Sticky bar now carries two actions (ADA's was call-only). */
+/* Below the desktop breakpoint the two actions split between the two fixed bars:
+   the header carries Free Estimate (the base rule shows .header-cta and hides the
+   phone there), and the sticky bar carries Call Now only. */
 .sticky-bar .btn { flex: 1; }
 
 /* ---- "Refresh vs new layout" band — recolour the planning card off blue
