@@ -1369,7 +1369,9 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
 .ba-layout { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
 .ba-section .ba { border-radius: 12px; border: 1px solid var(--border-light); }
 @media (min-width: 768px) {
-  .ba-layout { grid-template-columns: 1.1fr 1fr; gap: 30px; }
+  /* stretch so the wipe's top and bottom line up with the benefit-card column */
+  .ba-layout { grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: stretch; }
+  .ba-section .ba { aspect-ratio: auto; height: 100%; }
 }
 
 /* The four benefit cards: a single column of compact rows beside the wipe. */
