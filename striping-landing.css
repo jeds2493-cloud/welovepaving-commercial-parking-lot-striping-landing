@@ -757,11 +757,7 @@ a:hover { color: var(--ada-blue-dark); }
 .process-step h3 { font-size: 15px; font-weight: 800; line-height: 1.15; margin-bottom: 6px; }
 .process-step p { font-size: 12.5px; line-height: 1.4; color: var(--text-muted-light); }
 
-/* ============ S8 · PROOF ============ */
-.proof-grid { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: stretch; }
-.proof-card { background: var(--card-white); border: 1px solid var(--border-light); border-radius: 10px; overflow: hidden; }
-
-/* ---- Before/after wipe ---- */
+/* ============ BEFORE/AFTER WIPE ============ */
 .ba { position: relative; aspect-ratio: 16 / 9; overflow: hidden; user-select: none; background: #000; }
 .ba-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 /* The "after" is clipped from the left, so the divider position is simply the
@@ -822,115 +818,6 @@ a:hover { color: var(--ada-blue-dark); }
   border-radius: 50%;
   background: #fff; color: var(--text-dark);
   box-shadow: 0 3px 10px rgba(20,18,14,0.35);
-}
-.proof-specs {
-  padding: 16px; display: grid; grid-template-columns: auto 1fr; gap: 8px 12px;
-  font-size: 12.5px; line-height: 1.4; color: var(--text-muted-light);
-}
-.proof-specs b { color: var(--text-dark); }
-.testimonial {
-  background: var(--bg-dark-2); border-radius: 10px;
-  padding: 12px; margin: 0;
-  display: flex; flex-direction: column; justify-content: center; gap: 10px;
-}
-/* Self-hosted player. The source is only 400x224, so it is upscaled here —
-   see the note in the handover. object-fit: cover crops rather than
-   letterboxing it inside the 16:9 slot. */
-/* ---- Local video player ---- */
-.video-wrap {
-  position: relative;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #000;
-  isolation: isolate;
-}
-/* The source is only 400x224, so it is upscaled into this slot. cover crops
-   rather than letterboxing it inside the 16:9 frame. */
-.video-local {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  height: auto;
-  display: block;
-  background: #000;
-  object-fit: cover;
-}
-
-/* Poster overlay. The <video> keeps its own poster underneath, so this layer
-   only carries the affordance — no second copy of the image to load. */
-.video-cover {
-  position: absolute; inset: 0;
-  border: 0; padding: 0;
-  background: transparent;
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: opacity 0.25s var(--ease-mech), background 0.25s var(--ease-mech);
-}
-/* Darkens toward the top so the badge stays readable over any poster frame,
-   and lifts the play button off a busy still. */
-.video-cover::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(to bottom,
-    rgba(12, 11, 9, 0.55) 0%, rgba(12, 11, 9, 0.12) 42%, rgba(12, 11, 9, 0.35) 100%);
-  transition: opacity 0.25s var(--ease-mech);
-}
-.video-play {
-  position: relative;
-  width: 66px; height: 66px; border-radius: 50%;
-  background: var(--yellow); color: var(--text-dark);
-  display: flex; align-items: center; justify-content: center;
-  padding-left: 4px; /* optical centring of the triangle */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  transition: transform 0.2s var(--ease-mech), background 0.2s var(--ease-mech);
-}
-.video-cover:hover .video-play,
-.video-cover:focus-visible .video-play {
-  transform: scale(1.09);
-  background: var(--yellow-hover);
-}
-.video-cover:hover::before { opacity: 0.75; }
-.video-badge {
-  position: absolute; top: 12px; left: 12px;
-  z-index: 2;
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--yellow);
-  color: var(--text-dark);
-  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 5px 10px; border-radius: 4px;
-  pointer-events: none;
-  transition: opacity 0.25s var(--ease-mech);
-}
-/* A live red dot: reads as "recorded testimony" rather than decoration. */
-.video-badge::before {
-  content: "";
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--error-red);
-}
-/* Once it plays, the overlay would only be in the way of the native controls. */
-.video-wrap.is-playing .video-cover { opacity: 0; pointer-events: none; }
-.video-wrap.is-playing .video-badge { opacity: 0; }
-/* Reinforcement block under the video: a nudge line, the rating, and a pulled
-   quote so an undecided visitor gets the social proof without playing the clip. */
-.testimonial-quote {
-  display: flex; flex-direction: column; gap: 8px;
-  padding: 6px 8px 4px;
-}
-.testimonial-eyebrow {
-  margin: 0;
-  font-family: var(--font-mono); font-size: 10.5px; font-weight: 700;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ada-blue-light);
-}
-.testimonial-stars { display: flex; gap: 3px; }
-.star-icon { width: 16px; height: 16px; fill: var(--yellow); stroke: none; }
-.testimonial-text {
-  margin: 0;
-  font-family: var(--font-display); font-weight: 800;
-  font-size: clamp(15px, 1.6vw, 18px); line-height: 1.32; color: #fff;
-}
-.testimonial-by {
-  font-style: normal;
-  font-size: 12.5px; line-height: 1.5; color: var(--text-muted-dark);
 }
 .chips-label {
   font-family: var(--font-mono); font-size: 11px; font-weight: 600;
@@ -1038,7 +925,6 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
   .cond-grid { grid-template-columns: 1fr 1fr; }
   .why-cards { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; }
-  .proof-grid { grid-template-columns: 1.15fr 1fr; }
 }
 
 /* --- Desktop · container 1200, hero 7/5, 3-col cards --- */
@@ -1317,7 +1203,6 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
    move to the striping palette (yellow signage / charcoal), and blue stays only
    on the accessible service card. */
 .eyebrow { color: var(--yellow); }
-.testimonial-eyebrow { color: var(--yellow); }
 /* Hero bullet markers: yellow signage chip with a dark glyph. Yellow-on-white
    would fail contrast, so the chip itself carries the yellow and the glyph goes
    dark (dark-on-yellow clears AA and pops on the dark hero). */
@@ -1456,17 +1341,6 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
       url("images/s6-background-mobile.webp");
   }
   .why-section .pledge { display: none; }
-}
-
-/* ---- S9 · Project photo ---- */
-.proj-photo { position: relative; }
-.proj-photo img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-.proj-badge {
-  position: absolute; top: 10px; left: 10px;
-  font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase;
-  background: rgba(20,18,14,0.82); color: #fff;
-  padding: 4px 9px; border-radius: 4px;
 }
 
 /* ============================================================

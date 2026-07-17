@@ -222,40 +222,7 @@ if (condLinks.length) {
   });
 }
 
-/* ---------- Video testimonial (S8) ----------
-   Self-hosted, so there is no player to build. The cover only handles the
-   first click: it turns the native controls on and hands playback to the
-   browser, which already does scrubbing, volume, fullscreen and captions
-   better than anything worth writing here. */
-const videoWrap = document.querySelector('[data-video]');
-const video = videoWrap && videoWrap.querySelector('.video-local');
-const videoCover = videoWrap && videoWrap.querySelector('.video-cover');
-if (video && videoCover) {
-  videoCover.addEventListener('click', async () => {
-    video.controls = true;
-    videoWrap.classList.add('is-playing');
-    video.focus(); // the cover is about to vanish — don't strand the keyboard
-    try {
-      await video.play();
-    } catch (err) {
-      // play() rejects on an unloadable source or a blocked gesture. The cover
-      // is already gone by then, so put it back rather than leaving a dead
-      // player the visitor can't retry.
-      videoWrap.classList.remove('is-playing');
-      video.controls = false;
-      videoCover.focus();
-    }
-  });
-
-  video.addEventListener('play', () => {
-    videoWrap.classList.add('is-playing');
-    if (video.dataset.tracked) return;
-    video.dataset.tracked = '1'; // once per page, not on every unpause
-    track('video_testimonial_play', { video: 'doctor-medical-office' });
-  });
-}
-
-/* ---------- Before/after wipe (S8) ----------
+/* ---------- Before/after wipe ----------
    The range input is the source of truth: it carries the value, the keyboard
    support and the AT semantics. This only mirrors it into the CSS vars the
    clip and the divider read. */
