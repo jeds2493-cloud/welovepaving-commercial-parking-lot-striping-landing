@@ -1125,30 +1125,9 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
   }
   .section { padding: 56px 0; }
   .cond-grid { grid-template-columns: repeat(3, 1fr); }
-  /* Desktop-only: the emblem is baked into the background on the right, so the
-     separate seal is hidden and the content keeps to the left column. The grid
-     stays 1.5fr 1fr — with the seal gone, the empty right track lines up with
-     the emblem. The gradient is strong on the left to protect the heading over
-     the yellow road-paint stripes, and fades on the right to reveal the emblem. */
+  /* Content left, Panda Pledge microblock right. (The ADA landing baked a seal
+     into a background image here; striping keeps the section flat dark.) */
   .why-grid { grid-template-columns: 1.5fr 1fr; gap: 44px; }
-  .why-section {
-    background-color: var(--bg-dark);
-    background-size: cover;
-    background-position: right center;
-    background-repeat: no-repeat;
-  }
-  /* The image is deferred to .bg-in (JS adds it as the section nears the
-     viewport) so this below-fold art doesn't compete with the hero's LCP up top. */
-  .why-section.bg-in {
-    background-image:
-      linear-gradient(90deg,
-        rgba(20, 18, 14, 0.84) 0%,
-        rgba(20, 18, 14, 0.68) 42%,
-        rgba(20, 18, 14, 0.28) 70%,
-        rgba(20, 18, 14, 0.04) 100%),
-      url("images/s6-background.webp");
-  }
-  .why-section .pledge { display: none; }
   .process-grid { grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .process-step { flex-direction: column; gap: 10px; align-items: stretch; }
   .step-rule { width: 100%; }
@@ -1320,38 +1299,10 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
         rgba(20, 18, 14, 0.52) 62%,
         rgba(20, 18, 14, 0.44) 100%),
       url("images/striping-hero-mobile.webp");
-    /* Biased toward the right of the frame so the "Parking Only" ADA sign, which
-       sits on the right of the photo, clears the crop instead of hugging the edge. */
+    /* Biased right so the crop keeps the striped stalls rather than the trees
+       and building edge on the left of the frame. */
     background-position: 72% top;
   }
-
-  /* S6 — the mobile art carries the emblem at the top, so the separate seal is
-     hidden and the section uses the portrait image as its background. The
-     content clears the emblem via padding-top (~the emblem's rendered height,
-     which tracks viewport width), and the gradient stays light up top so the
-     emblem reads, then deepens where the heading and cards sit. */
-  .why-section {
-    background-color: var(--bg-dark);
-    /* 100% auto, not cover: cover zooms the portrait art to fill the tall
-       section and blows the emblem up over the heading. At full width the
-       emblem keeps its natural size at the top and the dark base fills below. */
-    background-size: 100% auto;
-    background-position: top center;
-    background-repeat: no-repeat;
-    padding-top: clamp(256px, 73vw, 320px);
-  }
-  /* Deferred to .bg-in so this 222KB below-fold art doesn't contend with the
-     hero background, which is the mobile LCP resource. */
-  .why-section.bg-in {
-    background-image:
-      linear-gradient(180deg,
-        rgba(20, 18, 14, 0.06) 0%,
-        rgba(20, 18, 14, 0.14) 22%,
-        rgba(20, 18, 14, 0.80) 34%,
-        rgba(20, 18, 14, 0.92) 55%),
-      url("images/s6-background-mobile.webp");
-  }
-  .why-section .pledge { display: none; }
 }
 
 /* ============================================================
