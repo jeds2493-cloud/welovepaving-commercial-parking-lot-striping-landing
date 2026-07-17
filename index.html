@@ -474,13 +474,27 @@
   </div>
 </section>
 
-<!-- ===== S7 · WHY WLP + WRITTEN PROTECTION ===== -->
-<section class="section section--dark" id="written-protection">
+<!-- ===== S7 · THE PANDA PLEDGE (written protection) =====
+     The ADA landing's concrete-and-emblem section, re-pointed at what the Panda
+     Pledge IS and how it applies to striping. The 15-year figure is kept honest:
+     it's the paving/surface guarantee ("selected services"), never a blanket
+     striping warranty. Desktop bakes the emblem into the background (right side);
+     tablet shows the .pledge <img>; mobile uses the portrait background. The
+     background is deferred to .bg-in by JS so this below-fold art doesn't compete
+     with the hero LCP. -->
+<section class="section section--dark why-section" id="written-protection">
   <div class="container">
-    <div class="why-grid why-grid--flat">
+    <div class="why-grid">
       <div>
-        <h2>Clear Scope. Coordinated Work. Written Protection.</h2>
-        <p class="section-lede">A professional striping project should be easy to understand, schedule and manage.</p>
+        <p class="pledge-eyebrow">The Panda Pledge</p>
+        <h2>Written Protection, Backed by the Panda Pledge.</h2>
+        <p class="section-lede">The Panda Pledge is We Love Paving&rsquo;s written guarantee of quality work. Your striping is backed by the application and workmanship assurance stated in the approved terms &mdash; and when qualifying asphalt or concrete surface work is part of the project, it can be covered by the Panda Pledge for up to 15 years.</p>
+
+        <div class="pledge-highlight">
+          <span class="pledge-highlight-num">Up to 15-Year Guarantee</span>
+          <span class="pledge-highlight-label">On selected services (qualifying surface work) &middot; Terms &amp; eligibility apply</span>
+        </div>
+
         <div class="why-cards">
           <article class="why-card">
             <span class="why-icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard-check"/></svg></span>
@@ -503,23 +517,18 @@
             <p>Striping includes the workmanship or application assurance stated in the approved project terms.</p>
           </article>
         </div>
+
+        <p class="pledge-cta-row">
+          <a href="#hero-form" class="btn btn-primary">Get My Written Project Estimate <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+        </p>
       </div>
 
-      <!-- Panda Pledge microblock. Deliberately small and hedged: the 15-year
-           warranty must NOT read as a striping standard, only as possible extra
-           protection for qualifying surface work. -->
-      <aside class="pledge-micro">
-        <div class="pledge-micro-head">
-          <img src="images/panda-pledge-badge.webp" alt="" width="72" height="76" loading="lazy">
-          <h3>Additional Protection for Qualifying Surface Work</h3>
-        </div>
-        <p>Qualifying asphalt and concrete work included in the project may be eligible for additional Panda Pledge protection.</p>
-        <p class="pledge-micro-terms">Terms and eligibility apply.</p>
-        <a href="#hero-form" class="btn btn-primary btn-sm">Get My Written Project Estimate</a>
-        <details class="coverage-note">
-          <summary>View Coverage Information</summary>
-          <p>Striping coverage is based on the applicable project terms. Qualifying asphalt and concrete work may be eligible for additional Panda Pledge protection. Coverage, warranty terms and eligibility are confirmed in the written proposal before work begins.</p>
-        </details>
+      <!-- Shown only on tablet (768–1079). Desktop bakes the emblem into the
+           background; mobile carries it at the top of the portrait background. -->
+      <aside class="pledge">
+        <img src="images/panda-pledge-badge.webp"
+             alt="The Panda Pledge seal from We Love Paving — up to a 15-year pothole-free guarantee on qualifying work"
+             width="760" height="805" loading="lazy">
       </aside>
     </div>
   </div>

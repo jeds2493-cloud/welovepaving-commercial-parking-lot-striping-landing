@@ -130,16 +130,23 @@ document.querySelectorAll('[data-track-call]').forEach((link) => {
   });
 });
 
-// Opening the coverage note is the clearest signal that the warranty/protection
-// terms were actually read. Fire once — reopening isn't a new intent.
-const coverageNote = document.querySelector('.coverage-note');
-if (coverageNote) {
-  coverageNote.addEventListener('toggle', () => {
-    if (coverageNote.open && !coverageNote.dataset.tracked) {
-      coverageNote.dataset.tracked = '1';
-      track('warranty_information_open');
-    }
-  });
+/* ---------- Defer the Panda Pledge background art ----------
+   The .why-section concrete/emblem background (303KB desktop / 223KB mobile)
+   sits below the fold; load it only as the section nears the viewport so it
+   doesn't compete with the hero's LCP background up top. */
+const whySection = document.querySelector('.why-section');
+if (whySection) {
+  if ('IntersectionObserver' in window) {
+    const bgObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        whySection.classList.add('bg-in');
+        bgObserver.disconnect();
+      }
+    }, { rootMargin: '400px 0px' });
+    bgObserver.observe(whySection);
+  } else {
+    whySection.classList.add('bg-in');
+  }
 }
 
 // The sticky bar's Free Estimate button routes to the form (handled by the
