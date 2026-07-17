@@ -1365,36 +1365,30 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
 .risk-cta--planned { color: var(--text-dark); }
 .risk-cta--planned:hover { color: #000; }
 
-/* ---- S4 · Before-and-after transformation ---- */
-.ba-layout { display: grid; grid-template-columns: 1fr; gap: 20px; align-items: center; }
+/* ---- S5 · Before-and-after + benefits (unified) ---- */
+.ba-layout { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
 .ba-section .ba { border-radius: 12px; border: 1px solid var(--border-light); }
-.ba-results { list-style: none; margin: 0 0 20px; padding: 0; display: grid; gap: 11px; }
-.ba-results li {
-  display: flex; align-items: flex-start; gap: 10px;
-  font-size: 14.5px; font-weight: 600; color: var(--text-dark);
-}
-.ba-results .icon { color: var(--success); font-size: 19px; flex: none; margin-top: 1px; }
 @media (min-width: 768px) {
-  .ba-layout { grid-template-columns: 1.25fr 1fr; gap: 30px; }
+  .ba-layout { grid-template-columns: 1.1fr 1fr; gap: 30px; }
 }
 
-/* ---- S6 · Property benefits (light cards) ---- */
-.benefit-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+/* The four benefit cards, 2x2 where the results bullets used to sit. */
+.ba-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+@media (max-width: 479px) { .ba-benefits { grid-template-columns: 1fr; } }
+
 .benefit-card {
   background: var(--card-white); border: 1px solid var(--border-light);
-  border-radius: 12px; padding: 20px;
+  border-radius: 12px; padding: 16px;
   box-shadow: 0 1px 2px rgba(20,18,14,0.04), 0 6px 16px rgba(20,18,14,0.04);
 }
 .benefit-badge {
-  width: 42px; height: 42px; border-radius: 10px;
+  width: 36px; height: 36px; border-radius: 9px;
   background: var(--yellow); color: var(--text-dark);
   display: flex; align-items: center; justify-content: center;
-  font-size: 21px; margin-bottom: 12px;
+  font-size: 19px; margin-bottom: 10px;
 }
-.benefit-card h3 { font-size: 16px; font-weight: 800; color: var(--text-dark); margin-bottom: 6px; }
-.benefit-card p { font-size: 13.5px; line-height: 1.5; color: var(--text-body); }
-@media (min-width: 768px) { .benefit-grid { grid-template-columns: 1fr 1fr; } }
-@media (min-width: 1080px) { .benefit-grid { grid-template-columns: repeat(4, 1fr); } }
+.benefit-card h3 { font-size: 15px; font-weight: 800; color: var(--text-dark); margin-bottom: 5px; }
+.benefit-card p { font-size: 12.5px; line-height: 1.45; color: var(--text-body); }
 
 /* ---- S7 · Panda Pledge section ---- */
 .pledge-eyebrow {
