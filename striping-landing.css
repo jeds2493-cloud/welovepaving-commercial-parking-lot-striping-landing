@@ -1378,10 +1378,11 @@ body { padding-bottom: calc(56px + env(safe-area-inset-bottom)); }
 .faq-q .icon { color: var(--text-muted-light); }
 .ba-tag--after { background: var(--yellow); color: var(--text-dark); }
 
-/* Enlarge the "100%" on the free-estimate seal — it was sized as the small top
-   line ("UP TO"); here it's a headline number and should read as one. */
+/* The "100%" is the seal's headline number — make it the largest line, above
+   even "FREE" (0.20em). letter-spacing pulled tight so 4 glyphs stay on one row. */
 .warranty-seal .s1 {
-  font-size: 0.135em; font-weight: 900; letter-spacing: 0.01em; line-height: 1;
+  font-size: 0.26em; font-weight: 900; letter-spacing: -0.02em; line-height: 0.95;
+  margin-bottom: 0.008em;
 }
 
 /* Mobile/tablet header + sticky bar. The brief puts BOTH actions in the bottom
